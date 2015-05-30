@@ -4,7 +4,8 @@
   "description": "Scaffold out a node module",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-travis": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot"
   },
   "files": [
     "app"
@@ -23,12 +24,17 @@
     "type": "git",
     "url": "git+https://github.com/chentsulin/generator-cnm.git"
   },
-  "author": "",
+  "author": {
+    "name": "C. T. Lin",
+    "email": "chentsulin@gmail.com",
+    "url": "https://github.com/chentsulin"
+  },
   "bugs": {
     "url": "https://github.com/chentsulin/generator-cnm/issues"
   },
   "homepage": "https://github.com/chentsulin/generator-cnm#readme",
   "devDependencies": {
+    "istanbul": "^0.3.14",
     "mocha": "*",
     "yeoman-assert": "^2.0.0"
   },

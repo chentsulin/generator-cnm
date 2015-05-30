@@ -4,6 +4,10 @@
 	"description": "My module",
 	"license": "MIT",
 	"repository": "<%= githubUsername %>/<%= moduleName %>",
+  "scripts": {
+    "test": "mocha",
+    "test-travis": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot"
+  },
 	"author": {
 		"name": "<%= name %>",
 		"email": "<%= email %>",
@@ -29,6 +33,7 @@
 		"meow": "^3.0.0"
 	<% } %>},
 	"devDependencies": {
+    "istanbul": "^0.3.14",
 		"mocha": "*"
 	}
 }
