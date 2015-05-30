@@ -1,0 +1,41 @@
+{
+  "name": "generator-cnm",
+  "version": "0.1.0",
+  "description": "Scaffold out a node module",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "plugin",
+    "boilerplate",
+    "template",
+    "scaffold",
+    "node",
+    "module",
+    "node_module"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chentsulin/generator-cnm.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/chentsulin/generator-cnm/issues"
+  },
+  "homepage": "https://github.com/chentsulin/generator-cnm#readme",
+  "devDependencies": {
+    "mocha": "*",
+    "yeoman-assert": "^2.0.0"
+  },
+  "dependencies": {
+    "humanize-url": "^1.0.1",
+    "normalize-url": "^1.2.1",
+    "underscore.string": "^3.0.3",
+    "yeoman-generator": "^0.20.1"
+  }
+}

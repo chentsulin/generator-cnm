@@ -1,0 +1,34 @@
+{
+	"name": "<%= moduleName %>",
+	"version": "0.1.0",
+	"description": "My module",
+	"license": "MIT",
+	"repository": "<%= githubUsername %>/<%= moduleName %>",
+	"author": {
+		"name": "<%= name %>",
+		"email": "<%= email %>",
+		"url": "<%= humanizedWebsite %>"
+	},<% if (cli) { %>
+	"bin": "cli.js",<% } %>
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"files": [
+		"index.js"<% if (cli) { %>,
+		"cli.js"<% } %>
+	],
+	"keywords": [<% if (cli) { %>
+		"cli-app",
+		"cli",<% } %>
+		""
+	],
+	"dependencies": {<% if (cli) { %>
+		"meow": "^3.0.0"
+	<% } %>},
+	"devDependencies": {
+		"mocha": "*"
+	}
+}
