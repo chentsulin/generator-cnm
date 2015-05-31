@@ -4,9 +4,11 @@ var path = require('path')
 var yeoman = require('yeoman-generator')
 var helpers = yeoman.test
 var assert = yeoman.assert
+var pwd = path.resolve('./')
 
 
 describe('generator', function () {
+
 	beforeEach(function (cb) {
 		var deps = ['../app']
 
@@ -16,6 +18,10 @@ describe('generator', function () {
 			cb()
 		}.bind(this))
 	})
+
+  afterEach(function() {
+    process.chdir(pwd)
+  })
 
 	it('generates expected files', function (cb) {
 		var expected = [
