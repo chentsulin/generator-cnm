@@ -1,15 +1,8 @@
 {
-	"env": {
-		"node": true,
-		"mocha": true
-	},
-	"globals": {
-
-	},
-	"rules": {
-		"quotes": [2, "single"],
-		"semi": [2, "never"],
-		"curly": [2, "multi-line"],
-		"no-underscore-dangle": 0
-	}
+  "extends": "eslint-config-airbnb",
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  }
 }
