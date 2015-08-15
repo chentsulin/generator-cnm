@@ -42,11 +42,14 @@ describe('generator', function() {
 			moduleName: 'test',
 			githubUsername: 'test',
 			website: 'test.com',
-			cli: false
+			cli: false,
+      libDir: false,
+      testDir: false
 		});
 
     this.generator.run(function() {
       assert.file(expected);
+      assert.noFile('cli.js');
       cb();
     });
   });
@@ -56,7 +59,9 @@ describe('generator', function() {
 			moduleName: 'test',
 			githubUsername: 'test',
 			website: 'test.com',
-			cli: true
+			cli: true,
+      libDir: false,
+      testDir: false
 		});
 
     this.generator.run(function() {
@@ -64,6 +69,39 @@ describe('generator', function() {
       assert.fileContent('package.json', /"bin":/);
       assert.fileContent('package.json', /"bin": "cli.js"/);
       assert.fileContent('package.json', /"meow"/);
+      cb();
+    });
+  });
+
+  it('lib directory option', function(cb) {
+    helpers.mockPrompt(this.generator, {
+      moduleName: 'test',
+      githubUsername: 'test',
+      website: 'test.com',
+      cli: true,
+      libDir: true,
+      testDir: false
+    });
+
+    this.generator.run(function() {
+      assert.file(path.join('lib', 'index.js'));
+      cb();
+    });
+  });
+
+  it('test directory option', function(cb) {
+    helpers.mockPrompt(this.generator, {
+      moduleName: 'test',
+      githubUsername: 'test',
+      website: 'test.com',
+      cli: false,
+      libDir: false,
+      testDir: true
+    });
+
+    this.generator.run(function() {
+      assert.file(path.join('test', 'test.js'));
+      assert.noFile('test.js');
       cb();
     });
   });

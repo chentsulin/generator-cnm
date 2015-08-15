@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "humanize-url": "^1.0.1",
+    "mkdirp": "^0.5.1",
     "normalize-url": "^1.2.1",
     "underscore.string": "^3.0.3",
     "yeoman-generator": "^0.20.1"

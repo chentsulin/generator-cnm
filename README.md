@@ -19,12 +19,6 @@ $ npm install -g generator-cnm
 $ yo cnm
 ```
 
-## Todo
-
-- support es6
-- eslint rules
-- lib, test folder options
-
 ## License
 
 MIT © [C.T. Lin](https://github.com/chentsulin)

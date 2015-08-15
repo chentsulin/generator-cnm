@@ -1,8 +1,10 @@
 'use strict';
 
 var normalizeUrl = require('normalize-url');
+var path = require('path');
 var humanizeUrl = require('humanize-url');
 var yeoman = require('yeoman-generator');
+var mkdirp = require('mkdirp');
 var _s = require('underscore.string');
 
 
@@ -39,8 +41,19 @@ module.exports = yeoman.generators.Base.extend({
 			message: 'Do you need a CLI?',
 			type: 'confirm',
 			default: false
-		}],
+		}, {
+      name: 'libDir',
+      message: 'Do you need a lib directory?',
+      type: 'confirm',
+      default: false
+    }, {
+      name: 'testDir',
+      message: 'Do you need a test directory?',
+      type: 'confirm',
+      default: false
+    }],
     function(props) {
+      var asyncCount = 0;
       this.moduleName = props.moduleName;
       this.camelModuleName = _s.camelize(props.moduleName);
       this.githubUsername = props.githubUsername;
@@ -61,13 +74,40 @@ module.exports = yeoman.generators.Base.extend({
       // needed so npm doesn't try to use it and fail
       this.template('_package.json', 'package.json');
       this.template('README.md');
-      this.template('test.js');
 
       if (this.cli) {
         this.template('cli.js');
       }
 
-      cb();
+      function decreaseCount() {
+        asyncCount--;
+        if (asyncCount === 0) cb();
+      }
+
+      if (this.libDir) {
+        asyncCount++;
+        mkdirp('lib', function(err) {
+          if (err) console.error(err);
+          this.template('index.js', path.join('lib', 'index.js'));
+          decreaseCount();
+        });
+      }
+
+      if (this.testDir) {
+        asyncCount++;
+        mkdirp('test', function(err) {
+          if (err) console.error(err);
+          this.template('test.js', path.join('lib', 'test.js'));
+          decreaseCount();
+        });
+      } else {
+        this.template('test.js');
+      }
+
+
+      if (asyncCount === 0) cb();
+
+
     }.bind(this));
 	},
 	install: function() {
