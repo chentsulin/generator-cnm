@@ -99,7 +99,7 @@ module.exports = yeoman.generators.Base.extend({
         asyncCount++;
         mkdirp('test', function(err) {
           if (err) console.error(err);
-          this.template('test.js', path.join('lib', 'test.js'));
+          this.template('test.js', path.join('test', 'test.js'));
           decreaseCount();
         }.bind(this));
       } else {
