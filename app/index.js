@@ -62,6 +62,8 @@ module.exports = yeoman.generators.Base.extend({
       this.website = props.website;
       this.humanizedWebsite = humanizeUrl(this.website);
       this.cli = props.cli;
+      this.libDir = props.libDir;
+      this.testDir = props.testDir;
 
       this.template('editorconfig', '.editorconfig');
       this.template('gitattributes', '.gitattributes');
@@ -88,9 +90,9 @@ module.exports = yeoman.generators.Base.extend({
         asyncCount++;
         mkdirp('lib', function(err) {
           if (err) console.error(err);
-          this.template('index.js', path.join('lib', 'index.js'));
+          this.template('_index.js', path.join('lib', 'index.js'));
           decreaseCount();
-        });
+        }.bind(this));
       }
 
       if (this.testDir) {
@@ -99,7 +101,7 @@ module.exports = yeoman.generators.Base.extend({
           if (err) console.error(err);
           this.template('test.js', path.join('lib', 'test.js'));
           decreaseCount();
-        });
+        }.bind(this));
       } else {
         this.template('test.js');
       }
