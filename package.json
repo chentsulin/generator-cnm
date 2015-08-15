@@ -34,7 +34,11 @@
   },
   "homepage": "https://github.com/chentsulin/generator-cnm#readme",
   "devDependencies": {
-    "istanbul": "^0.3.14",
+    "babel-eslint": "^4.0.6",
+    "eslint": "^0.24.1",
+    "eslint-config-airbnb": "0.0.7",
+    "eslint-plugin-react": "^3.2.2",
+    "istanbul": "^0.3.17",
     "mocha": "*"
   },
   "dependencies": {

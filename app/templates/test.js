@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-var assert = require('assert')
-var <%= camelModuleName %> = require('./')
+var expect = require('chai').expect;
+var <%= camelModuleName %> = require('./');
 
-it('should ', function () {
-	assert.strictEqual(<%= camelModuleName %>('unicorns'), 'unicorns & rainbows')
+it('should ', function() {
+	expect(<%= camelModuleName %>('unicorns')).to.equal('unicorns & rainbows');
 });

@@ -33,7 +33,11 @@
 		"meow": "^3.0.0"
 	<% } %>},
 	"devDependencies": {
-    "istanbul": "^0.3.14",
-		"mocha": "*"
+    "chai": "^3.2.0",
+    "eslint": "^0.24.1",
+    "eslint-config-airbnb": "0.0.7",
+    "eslint-plugin-react": "^3.2.2",
+    "istanbul": "^0.3.17",
+    "mocha": "*"
 	}
 }

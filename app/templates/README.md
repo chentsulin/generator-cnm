@@ -73,12 +73,12 @@ Lorem ipsum.
 
 MIT © [<%= name %>](<%= website %>)
 
-[npm-image]: https://img.shields.io/npm/v/<%= moduleName %>.svg?style=flat-square
+[npm-image]: https://badge.fury.io/js/<%= moduleName %>.svg
 [npm-url]: https://npmjs.org/package/<%= moduleName %>
 [travis-image]: https://travis-ci.org/<%= githubUsername %>/<%= moduleName %>.svg
 [travis-url]: https://travis-ci.org/<%= githubUsername %>/<%= moduleName %>
-[coveralls-image]: https://img.shields.io/coveralls/<%= githubUsername %>/<%= moduleName %>.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/<%= githubUsername %>/<%= moduleName %>
-[david_img]: https://img.shields.io/david/<%= githubUsername %>/<%= moduleName %>.svg
+[coveralls-image]: https://coveralls.io/repos/<%= githubUsername %>/<%= moduleName %>/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/r/<%= githubUsername %>/<%= moduleName %>?branch=master
+[david_img]: https://david-dm.org/<%= githubUsername %>/<%= moduleName %>.svg
 [david_site]: https://david-dm.org/<%= githubUsername %>/<%= moduleName %>
 

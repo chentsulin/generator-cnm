@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-'use strict'
+'use strict';
 
-var meow = require('meow')
-var <%= camelModuleName %> = require('./')
+var meow = require('meow');
+var <%= camelModuleName %> = require('./');
 
 var cli = meow({
 	help: [
@@ -19,6 +19,8 @@ var cli = meow({
 		'Options',
 		'  --foo  Lorem ipsum. Default: false'
 	].join('\n')
-})
+});
 
-console.log(<%= camelModuleName %>(cli.input[0] || 'unicorns'))
+var input = cli.input[0];
+
+console.log(<%= camelModuleName %>(input || ''));

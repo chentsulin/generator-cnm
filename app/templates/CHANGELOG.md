@@ -5,6 +5,6 @@
 - **A:**
 - **B:**
 
-#### Bug Fixed
+#### Bugs Fixed
 
 - **C:**
