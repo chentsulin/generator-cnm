@@ -1,6 +1,6 @@
 {
   "name": "generator-cnm",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Scaffold out a node module",
   "license": "MIT",
   "scripts": {
