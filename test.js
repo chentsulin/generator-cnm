@@ -85,6 +85,8 @@ describe('generator', function() {
 
     this.generator.run(function() {
       assert.file(path.join('lib', 'index.js'));
+      assert.fileContent('index.js', /module\.exports/);
+      assert.fileContent('package.json', /"lib\/"/);
       cb();
     });
   });

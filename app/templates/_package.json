@@ -22,7 +22,8 @@
 	},
 	"files": [
 		"index.js"<% if (cli) { %>,
-		"cli.js"<% } %>
+		"cli.js"<% } %><% if (libDir) { %>,
+    "lib/"<% }
 	],
 	"keywords": [<% if (cli) { %>
 		"cli-app",
