@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/chentsulin/generator-cnm#readme",
   "devDependencies": {
-    "chai": "^3.4.1",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.0.0",
     "istanbul": "^0.4.1",
