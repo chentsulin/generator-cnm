@@ -37,14 +37,14 @@
   "devDependencies": {
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.1.0",
-    "istanbul": "^0.4.1",
+    "istanbul": "^0.4.2",
     "mocha": "*"
   },
   "dependencies": {
     "humanize-url": "^1.0.1",
     "mkdirp": "^0.5.1",
-    "normalize-url": "^1.2.1",
-    "underscore.string": "^3.0.3",
-    "yeoman-generator": "^0.20.1"
+    "normalize-url": "^1.4.1",
+    "underscore.string": "^3.3.4",
+    "yeoman-generator": "^0.22.5"
   }
 }
