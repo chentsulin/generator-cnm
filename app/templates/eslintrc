@@ -7,7 +7,6 @@
   "rules": {
     "no-var": 0,
     "vars-on-top": 0,
-    "comma-dangle": 0,
     "strict": 0
   }
 }

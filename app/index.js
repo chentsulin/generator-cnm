@@ -9,50 +9,50 @@ var _s = require('underscore.string');
 
 
 module.exports = yeoman.generators.Base.extend({
-	init: function() {
+  init: function () {
     var cb = this.async();
 
     this.prompt([{
-			name: 'moduleName',
-			message: 'What do you want to name your module?',
-			default: this.appname.replace(/\s/g, '-'),
-			filter: function(val) {
-				return _s.slugify(val);
-			}
-		}, {
-			name: 'githubUsername',
-			message: 'What is your GitHub username?',
-			store: true,
-			validate: function(val) {
-				return val.length > 0 ? true : 'You have to provide a username';
-			}
-		}, {
-			name: 'website',
-			message: 'What is the URL of your website?',
-			store: true,
-			validate: function(val) {
+      name: 'moduleName',
+      message: 'What do you want to name your module?',
+      'default': this.appname.replace(/\s/g, '-'),
+      filter: function (val) {
+        return _s.slugify(val);
+      }
+    }, {
+      name: 'githubUsername',
+      message: 'What is your GitHub username?',
+      store: true,
+      validate: function (val) {
+        return val.length > 0 ? true : 'You have to provide a username';
+      }
+    }, {
+      name: 'website',
+      message: 'What is the URL of your website?',
+      store: true,
+      validate: function (val) {
         return val.length > 0 ? true : 'You have to provide a website URL';
-			},
-			filter: function(val) {
+      },
+      filter: function (val) {
         return normalizeUrl(val);
-			}
-		}, {
-			name: 'cli',
-			message: 'Do you need a CLI?',
-			type: 'confirm',
-			default: false
-		}, {
+      }
+    }, {
+      name: 'cli',
+      message: 'Do you need a CLI?',
+      type: 'confirm',
+      'default': false
+    }, {
       name: 'libDir',
       message: 'Do you need a lib directory?',
       type: 'confirm',
-      default: false
+      'default': false
     }, {
       name: 'testDir',
       message: 'Do you need a test directory?',
       type: 'confirm',
-      default: false
+      'default': false
     }],
-    function(props) {
+    function (props) {
       var asyncCount = 0;
       this.moduleName = props.moduleName;
       this.camelModuleName = _s.camelize(props.moduleName);
@@ -88,7 +88,7 @@ module.exports = yeoman.generators.Base.extend({
 
       if (this.libDir) {
         asyncCount++;
-        mkdirp('lib', function(err) {
+        mkdirp('lib', function (err) {
           if (err) console.error(err);
           this.template('_index.js', path.join('lib', 'index.js'));
           decreaseCount();
@@ -97,7 +97,7 @@ module.exports = yeoman.generators.Base.extend({
 
       if (this.testDir) {
         asyncCount++;
-        mkdirp('test', function(err) {
+        mkdirp('test', function (err) {
           if (err) console.error(err);
           this.template('test.js', path.join('test', 'test.js'));
           decreaseCount();
@@ -108,11 +108,9 @@ module.exports = yeoman.generators.Base.extend({
 
 
       if (asyncCount === 0) cb();
-
-
     }.bind(this));
-	},
-	install: function() {
+  },
+  install: function () {
     this.installDependencies({ bower: false });
   }
 });
