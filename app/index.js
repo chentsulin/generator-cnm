@@ -1,3 +1,4 @@
+/* eslint quote-props: 0*/
 'use strict';
 
 var normalizeUrl = require('normalize-url');
@@ -15,7 +16,7 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt([{
       name: 'moduleName',
       message: 'What do you want to name your module?',
-      'default': this.appname.replace(/\s/g, '-'),
+      default: this.appname.replace(/\s/g, '-'),
       filter: function (val) {
         return _s.slugify(val);
       }
@@ -40,17 +41,17 @@ module.exports = yeoman.generators.Base.extend({
       name: 'cli',
       message: 'Do you need a CLI?',
       type: 'confirm',
-      'default': false
+      default: false
     }, {
       name: 'libDir',
       message: 'Do you need a lib directory?',
       type: 'confirm',
-      'default': false
+      default: false
     }, {
       name: 'testDir',
       message: 'Do you need a test directory?',
       type: 'confirm',
-      'default': false
+      default: false
     }],
     function (props) {
       var asyncCount = 0;
