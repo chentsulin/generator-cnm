@@ -1,3 +1,4 @@
+/* eslint consistent-return: 0 */
 'use strict';
 
 var path = require('path');
