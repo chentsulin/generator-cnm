@@ -29,6 +29,7 @@ describe('generator', function () {
       '.gitattributes',
       '.gitignore',
       '.eslintrc',
+      '.eslintignore',
       '.travis.yml',
       'CHANGELOG.md',
       'index.js',
