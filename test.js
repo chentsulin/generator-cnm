@@ -36,7 +36,7 @@ describe('generator', function () {
       'LICENSE',
       'package.json',
       'README.md',
-      'test.js'
+      'test.js',
     ];
 
     helpers.mockPrompt(this.generator, {
@@ -45,7 +45,7 @@ describe('generator', function () {
       website: 'test.com',
       cli: false,
       libDir: false,
-      testDir: false
+      testDir: false,
     });
 
     this.generator.run(function () {
@@ -62,7 +62,7 @@ describe('generator', function () {
       website: 'test.com',
       cli: true,
       libDir: false,
-      testDir: false
+      testDir: false,
     });
 
     this.generator.run(function () {
@@ -81,7 +81,7 @@ describe('generator', function () {
       website: 'test.com',
       cli: true,
       libDir: true,
-      testDir: false
+      testDir: false,
     });
 
     this.generator.run(function () {
@@ -99,7 +99,7 @@ describe('generator', function () {
       website: 'test.com',
       cli: false,
       libDir: false,
-      testDir: true
+      testDir: true,
     });
 
     this.generator.run(function () {

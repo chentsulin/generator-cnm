@@ -19,14 +19,14 @@ module.exports = yeoman.generators.Base.extend({
       default: this.appname.replace(/\s/g, '-'),
       filter: function (val) {
         return _s.slugify(val);
-      }
+      },
     }, {
       name: 'githubUsername',
       message: 'What is your GitHub username?',
       store: true,
       validate: function (val) {
         return val.length > 0 ? true : 'You have to provide a username';
-      }
+      },
     }, {
       name: 'website',
       message: 'What is the URL of your website?',
@@ -36,22 +36,22 @@ module.exports = yeoman.generators.Base.extend({
       },
       filter: function (val) {
         return normalizeUrl(val);
-      }
+      },
     }, {
       name: 'cli',
       message: 'Do you need a CLI?',
       type: 'confirm',
-      default: false
+      default: false,
     }, {
       name: 'libDir',
       message: 'Do you need a lib directory?',
       type: 'confirm',
-      default: false
+      default: false,
     }, {
       name: 'testDir',
       message: 'Do you need a test directory?',
       type: 'confirm',
-      default: false
+      default: false,
     }],
     function (props) {
       var asyncCount = 0;
@@ -91,7 +91,7 @@ module.exports = yeoman.generators.Base.extend({
       if (this.libDir) {
         asyncCount++;
         mkdirp('lib', function (err) {
-          if (err) console.error(err);
+          if (err) console.error(err); // eslint-disable-line no-console
           this.template('_index.js', path.join('lib', 'index.js'));
           decreaseCount();
         }.bind(this));
@@ -100,7 +100,7 @@ module.exports = yeoman.generators.Base.extend({
       if (this.testDir) {
         asyncCount++;
         mkdirp('test', function (err) {
-          if (err) console.error(err);
+          if (err) console.error(err); // eslint-disable-line no-console
           this.template('test.js', path.join('test', 'test.js'));
           decreaseCount();
         }.bind(this));
@@ -114,5 +114,5 @@ module.exports = yeoman.generators.Base.extend({
   },
   install: function () {
     this.installDependencies({ bower: false });
-  }
+  },
 });

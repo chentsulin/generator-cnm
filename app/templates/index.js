@@ -5,7 +5,7 @@ module.exports = function (str, opts) {
     throw new TypeError('Expected a string');
   }
 
-  opts = opts || {};
+  opts = opts || {}; // eslint-disable-line no-param-reassign
 
   return str + ' & ' + (opts.postfix || 'rainbows');
 };
