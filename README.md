@@ -16,7 +16,7 @@ $ npm install -g generator-cnm
 ## Usage
 
 ```sh
-$ yo cnm
+$ mkdir your-module-name && cd your-module-name && yo cnm
 ```
 
 ## License
