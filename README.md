@@ -13,6 +13,12 @@
 $ npm install -g generator-cnm
 ```
 
+> Note: `generator-cnm` is a [yeoman](http://yeoman.io/) generator, so you must have global `yo` installed, too.
+
+```sh
+$ npm install -g yo
+```
+
 ## Usage
 
 ```sh

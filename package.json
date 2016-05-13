@@ -49,5 +49,8 @@
     "normalize-url": "^1.5.2",
     "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.23.3"
+  },
+  "engines" : {
+    "node" : ">=4"
   }
 }
