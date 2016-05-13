@@ -1,30 +1,30 @@
-/* eslint consistent-return: 0 */
 'use strict';
 
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var helpers = yeoman.test;
-var assert = yeoman.assert;
-var pwd = path.resolve('./');
+const path = require('path');
+const helpers = require('yeoman-test');
+const assert = require('yeoman-assert');
+const pwd = path.resolve('./');
 
 
-describe('generator', function () {
-  beforeEach(function (cb) {
-    var deps = ['../app'];
+describe('generator', () => {
+  let generator;
 
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) return cb(err);
-      this.generator = helpers.createGenerator('cnm:app', deps, null, { skipInstall: true });
-      cb();
-    }.bind(this));
+  beforeEach((done) => {
+    const deps = ['../app'];
+
+    helpers.testDirectory(path.join(__dirname, 'temp'), (err) => {
+      if (err) return done(err);
+      generator = helpers.createGenerator('cnm:app', deps, null, { skipInstall: true });
+      done();
+    });
   });
 
-  afterEach(function () {
+  afterEach(() => {
     process.chdir(pwd);
   });
 
-  it('generates expected files', function (cb) {
-    var expected = [
+  it('generates expected files', (done) => {
+    const expected = [
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
@@ -36,76 +36,76 @@ describe('generator', function () {
       'LICENSE',
       'package.json',
       'README.md',
-      'test.js'
+      'test.js',
     ];
 
-    helpers.mockPrompt(this.generator, {
+    helpers.mockPrompt(generator, {
       moduleName: 'test',
       githubUsername: 'test',
       website: 'test.com',
       cli: false,
       libDir: false,
-      testDir: false
+      testDir: false,
     });
 
-    this.generator.run(function () {
+    generator.run(() => {
       assert.file(expected);
       assert.noFile('cli.js');
-      cb();
+      done();
     });
   });
 
-  it('CLI option', function (cb) {
-    helpers.mockPrompt(this.generator, {
+  it('CLI option', (done) => {
+    helpers.mockPrompt(generator, {
       moduleName: 'test',
       githubUsername: 'test',
       website: 'test.com',
       cli: true,
       libDir: false,
-      testDir: false
+      testDir: false,
     });
 
-    this.generator.run(function () {
+    generator.run(() => {
       assert.file('cli.js');
       assert.fileContent('package.json', /"bin":/);
       assert.fileContent('package.json', /"bin": "cli.js"/);
       assert.fileContent('package.json', /"meow"/);
-      cb();
+      done();
     });
   });
 
-  it('lib directory option', function (cb) {
-    helpers.mockPrompt(this.generator, {
+  it('lib directory option', (done) => {
+    helpers.mockPrompt(generator, {
       moduleName: 'test',
       githubUsername: 'test',
       website: 'test.com',
       cli: true,
       libDir: true,
-      testDir: false
+      testDir: false,
     });
 
-    this.generator.run(function () {
+    generator.run(() => {
       assert.file(path.join('lib', 'index.js'));
       assert.fileContent('index.js', /module\.exports/);
       assert.fileContent('package.json', /"lib\/"/);
-      cb();
+      done();
     });
   });
 
-  it('test directory option', function (cb) {
-    helpers.mockPrompt(this.generator, {
+  it('test directory option', (done) => {
+    helpers.mockPrompt(generator, {
       moduleName: 'test',
       githubUsername: 'test',
       website: 'test.com',
       cli: false,
       libDir: false,
-      testDir: true
+      testDir: true,
     });
 
-    this.generator.run(function () {
+    generator.run(() => {
       assert.file(path.join('test', 'test.js'));
       assert.noFile('test.js');
-      cb();
+      done();
     });
   });
 });
