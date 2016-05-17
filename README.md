@@ -25,6 +25,12 @@ $ npm install -g yo
 $ mkdir your-module-name && cd your-module-name && yo cnm
 ```
 
+# Troubleshooting
+
+#### TypeError: this.env.adapter.prompt(...).then is not a function
+
+Please upgrade your global `yo` npm module using `npm install -g yo`.
+
 ## License
 
 MIT © [C.T. Lin](https://github.com/chentsulin)
