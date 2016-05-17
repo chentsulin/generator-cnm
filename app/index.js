@@ -72,6 +72,7 @@ module.exports = yeoman.Base.extend({
       this.template('eslintrc.json', '.eslintrc.json');
       this.template('eslintignore', '.eslintignore');
       this.template('travis.yml', '.travis.yml');
+      this.template('babelrc', '.babelrc');
       this.template('index.js');
       this.template('LICENSE');
       this.template('CHANGELOG.md');
@@ -90,9 +91,9 @@ module.exports = yeoman.Base.extend({
 
       if (this.libDir) {
         asyncCount++;
-        mkdirp('lib', (err) => {
+        mkdirp('src', (err) => {
           if (err) console.error(err); // eslint-disable-line no-console
-          this.template('_index.js', path.join('lib', 'index.js'));
+          this.template('_index.js', path.join('src', 'index.js'));
           decreaseCount();
         });
       }

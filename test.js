@@ -31,6 +31,7 @@ describe('generator', () => {
       '.eslintrc.json',
       '.eslintignore',
       '.travis.yml',
+      '.babelrc',
       'CHANGELOG.md',
       'index.js',
       'LICENSE',
