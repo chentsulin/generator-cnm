@@ -69,7 +69,7 @@ module.exports = yeoman.Base.extend({
       this.template('editorconfig', '.editorconfig');
       this.template('gitattributes', '.gitattributes');
       this.template('gitignore', '.gitignore');
-      this.template('eslintrc', '.eslintrc');
+      this.template('eslintrc.json', '.eslintrc.json');
       this.template('eslintignore', '.eslintignore');
       this.template('travis.yml', '.travis.yml');
       this.template('index.js');
