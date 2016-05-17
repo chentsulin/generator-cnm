@@ -1,6 +1,6 @@
 {
   "name": "generator-cnm",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Scaffold out a node module",
   "license": "MIT",
   "scripts": {
@@ -50,7 +50,7 @@
     "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.23.3"
   },
-  "engines" : {
-    "node" : ">=4"
+  "engines": {
+    "node": ">=4"
   }
 }
