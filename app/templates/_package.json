@@ -2,6 +2,7 @@
   "name": "<%= moduleName %>",
   "version": "0.1.0",
   "description": "My module",
+  "main": "lib/index.js",
   "license": "MIT",
   "repository": "<%= githubUsername %>/<%= moduleName %>",
   "author": {
@@ -51,7 +52,9 @@
     "testonly": "NODE_ENV=test mocha $npm_package_options_mocha",
     "test": "npm run lint && npm run testonly",
     "test:cov": "nyc npm test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "preversion": "npm test",
+    "prepublish": "npm run clean && npm run build"
   },
   "devEngines": {
     "node": "4.x || 5.x || 6.x",
