@@ -18,7 +18,7 @@ var cli = meow({
 		'',
 		'Options',
 		'  --foo  Lorem ipsum. Default: false'
-	].join('\n')
+	].join('\n'),
 });
 
 var input = cli.input[0];

@@ -42,16 +42,6 @@ module.exports = yeoman.Base.extend({
       message: 'Do you need a CLI?',
       type: 'confirm',
       default: false,
-    }, {
-      name: 'libDir',
-      message: 'Do you need a lib directory?',
-      type: 'confirm',
-      default: false,
-    }, {
-      name: 'testDir',
-      message: 'Do you need a test directory?',
-      type: 'confirm',
-      default: false,
     }])
     .then((props) => {
       let asyncCount = 0;
@@ -72,7 +62,7 @@ module.exports = yeoman.Base.extend({
       this.template('eslintrc.json', '.eslintrc.json');
       this.template('eslintignore', '.eslintignore');
       this.template('travis.yml', '.travis.yml');
-      this.template('index.js');
+      this.template('babelrc', '.babelrc');
       this.template('LICENSE');
       this.template('CHANGELOG.md');
       // needed so npm doesn't try to use it and fail
@@ -88,25 +78,19 @@ module.exports = yeoman.Base.extend({
         if (asyncCount === 0) cb();
       }
 
-      if (this.libDir) {
-        asyncCount++;
-        mkdirp('lib', (err) => {
-          if (err) console.error(err); // eslint-disable-line no-console
-          this.template('_index.js', path.join('lib', 'index.js'));
-          decreaseCount();
-        });
-      }
+      asyncCount++;
+      mkdirp('src', (err) => {
+        if (err) console.error(err); // eslint-disable-line no-console
+        this.template('_index.js', path.join('src', 'index.js'));
+        decreaseCount();
+      });
 
-      if (this.testDir) {
-        asyncCount++;
-        mkdirp('test', (err) => {
-          if (err) console.error(err); // eslint-disable-line no-console
-          this.template('test.js', path.join('test', 'test.js'));
-          decreaseCount();
-        });
-      } else {
-        this.template('test.js');
-      }
+      asyncCount++;
+      mkdirp('test', (err) => {
+        if (err) console.error(err); // eslint-disable-line no-console
+        this.template('test.js', path.join('src', '__tests__', 'index.spec.js'));
+        decreaseCount();
+      });
 
       if (asyncCount === 0) cb();
     });

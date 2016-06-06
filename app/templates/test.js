@@ -1,8 +1,9 @@
-'use strict';
+import { expect } from 'chai';
+var <%= camelModuleName %> = require('../');
 
-var expect = require('chai').expect;
-var <%= camelModuleName %> = require('./');
-
-it('should ', function () {
-  expect(<%= camelModuleName %>('unicorns')).to.equal('unicorns & rainbows');
+describe('<%= camelModuleName %>', () => {
+  it('should ', () => {
+    expect(<%= camelModuleName %>('unicorns')).to.equal('unicorns & rainbows');
+  });
 });
+

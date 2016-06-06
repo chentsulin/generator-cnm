@@ -31,12 +31,13 @@ describe('generator', () => {
       '.eslintrc.json',
       '.eslintignore',
       '.travis.yml',
+      '.babelrc',
       'CHANGELOG.md',
-      'index.js',
       'LICENSE',
       'package.json',
       'README.md',
-      'test.js',
+      path.join('src', 'index.js'),
+      path.join('src', '__tests__', 'index.spec.js'),
     ];
 
     helpers.mockPrompt(generator, {
@@ -44,8 +45,6 @@ describe('generator', () => {
       githubUsername: 'test',
       website: 'test.com',
       cli: false,
-      libDir: false,
-      testDir: false,
     });
 
     generator.run(() => {
@@ -70,41 +69,6 @@ describe('generator', () => {
       assert.fileContent('package.json', /"bin":/);
       assert.fileContent('package.json', /"bin": "cli.js"/);
       assert.fileContent('package.json', /"meow"/);
-      done();
-    });
-  });
-
-  it('lib directory option', (done) => {
-    helpers.mockPrompt(generator, {
-      moduleName: 'test',
-      githubUsername: 'test',
-      website: 'test.com',
-      cli: true,
-      libDir: true,
-      testDir: false,
-    });
-
-    generator.run(() => {
-      assert.file(path.join('lib', 'index.js'));
-      assert.fileContent('index.js', /module\.exports/);
-      assert.fileContent('package.json', /"lib\/"/);
-      done();
-    });
-  });
-
-  it('test directory option', (done) => {
-    helpers.mockPrompt(generator, {
-      moduleName: 'test',
-      githubUsername: 'test',
-      website: 'test.com',
-      cli: false,
-      libDir: false,
-      testDir: true,
-    });
-
-    generator.run(() => {
-      assert.file(path.join('test', 'test.js'));
-      assert.noFile('test.js');
       done();
     });
   });
